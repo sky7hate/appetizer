@@ -2,6 +2,8 @@ package appetizer.syntactic;
 
 import java.io.*;
 
+import appetizer.main.Main;
+
 import com.google.gson.Gson;
 
 final class ParserTest {
@@ -23,7 +25,7 @@ final class ParserTest {
 	}
 
 	private static String pathOf(String filename) {
-		return ParserTest.class.getResource(filename).getPath();
+		return Main.class.getResource(filename).getPath();
 	}
 
 	public static void main(String argv[]) throws IOException {
