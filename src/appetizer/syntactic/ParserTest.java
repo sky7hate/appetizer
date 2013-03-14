@@ -10,7 +10,7 @@ final class ParserTest {
 
 	private static void parse(String filename) throws IOException {
 		InputStream inp = new FileInputStream(filename);
-		Parser parser = new Parser(new Yylex(inp));
+		Parser parser = new Parser(inp);
 		java_cup.runtime.Symbol parseTree = null;
 		try {
 			parseTree = parser.parse();

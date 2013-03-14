@@ -14,4 +14,8 @@ public class Op extends Expr {
 	public static enum OpType {
 		PLUS, MINUS, TIMES, DIVIDE, EQ, NE, LT, GT, LE, GE, ASSIGN
 	}
+
+	public boolean isLvalue() {
+		return opType.equals(OpType.ASSIGN);
+	}
 }
