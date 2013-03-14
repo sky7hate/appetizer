@@ -2,8 +2,13 @@ package appetizer.ast;
 
 public class Op extends Expr {
 
-	public Op(Expr l, OpType assign, Expr r) {
-		// TODO Auto-generated constructor stub
+	public Expr left, right;
+	public OpType opType;
+
+	public Op(Expr l, OpType t, Expr r) {
+		left = l;
+		right = r;
+		opType = t;
 	}
 
 	public static enum OpType {

@@ -4,8 +4,11 @@ import appetizer.symbol.Symbol;
 
 public class Program {
 
-	public Program(Symbol symbol, Block b) {
-		// TODO Auto-generated constructor stub
-	}
+	public Symbol sym;
+	public Block body;
 
+	public Program(Symbol symbol, Block b) {
+		sym = symbol;
+		body = b;
+	}
 }

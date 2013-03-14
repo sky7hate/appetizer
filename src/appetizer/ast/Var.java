@@ -4,8 +4,9 @@ import appetizer.symbol.Symbol;
 
 public class Var extends Expr {
 
-	public Var(Symbol symbol) {
-		// TODO Auto-generated constructor stub
-	}
+	public Symbol sym;
 
+	public Var(Symbol symbol) {
+		sym = symbol;
+	}
 }

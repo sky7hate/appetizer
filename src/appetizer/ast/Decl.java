@@ -4,8 +4,9 @@ import appetizer.symbol.Symbol;
 
 public class Decl {
 
-	public Decl(Symbol symbol) {
-		// TODO Auto-generated constructor stub
-	}
+	public Symbol sym;
 
+	public Decl(Symbol symbol) {
+		sym = symbol;
+	}
 }

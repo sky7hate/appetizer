@@ -2,8 +2,11 @@ package appetizer.ast;
 
 public class StmtList {
 
-	public StmtList(Stmt s, StmtList x) {
-		// TODO Auto-generated constructor stub
-	}
+	public Stmt head;
+	public StmtList tail;
 
+	public StmtList(Stmt s, StmtList x) {
+		head = s;
+		tail = x;
+	}
 }
