@@ -24,13 +24,9 @@ final class ParserTest {
 		System.out.println(gson.toJson(parseTree.value));
 	}
 
-	private static String pathOf(String filename) {
-		return Main.class.getResource(filename).getPath();
-	}
-
 	public static void main(String argv[]) throws IOException {
-		parse(pathOf("example1.c"));
-		parse(pathOf("example2.c"));
-		parse(pathOf("example3.c"));
+		parse(Main.pathOf("example1.c"));
+		parse(Main.pathOf("example2.c"));
+		parse(Main.pathOf("example3.c"));
 	}
 }
