@@ -131,7 +131,7 @@ public class MipsAssemblyWriter implements AssemblyWriter {
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
 		for (String line : lines) {
-			if (!line.startsWith(".") && !line.contains(":")) {
+			if (!line.startsWith(".") && !line.endsWith(":")) {
 				sb.append('\t');
 			}
 			sb.append(line);

@@ -2,6 +2,8 @@ package appetizer.translate;
 
 import static appetizer.symbol.Symbol.symbol;
 
+import java.util.Stack;
+
 import appetizer.ast.*;
 import appetizer.codegen.AssemblyWriter;
 import appetizer.symbol.Table;
@@ -12,6 +14,7 @@ public class Translator {
 	private AssemblyWriter asm;
 	private Table vscope;
 	private int offset;
+	private Stack<Integer> offsets;
 	private Label exit;
 
 	public void translate(Program program, AssemblyWriter assemblyWriter) {
@@ -19,6 +22,7 @@ public class Translator {
 		asm = assemblyWriter;
 		vscope = new Table();
 		offset = 0;
+		offsets = new Stack<Integer>();
 		exit = new Label();
 		translate(prog);
 	}
@@ -34,11 +38,12 @@ public class Translator {
 	}
 
 	private void translate(Block block) {
-		// TODO save and restore offset to use less space
+		offsets.push(offset);
 		vscope.beginScope();
 		translate(block.decls);
 		translate(block.stmts);
 		vscope.endScope();
+		offset = offsets.pop();
 	}
 
 	private void translate(DeclList decls) {
