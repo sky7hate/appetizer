@@ -1,8 +1,10 @@
 package appetizer.main;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 
 import appetizer.ast.Program;
 import appetizer.codegen.AssemblyWriter;
@@ -33,7 +35,13 @@ public class Main {
 		Translator translator = new Translator();
 		AssemblyWriter asm = new MipsAssemblyWriter();
 		translator.translate(program, asm);
-		System.out.println(asm);
+
+		PrintWriter out = new PrintWriter(new FileOutputStream(
+				filename.replace(".c", ".s")));
+		out.println("########################################");
+		out.println(asm);
+		out.close();
+		System.out.println(filename.replace(".c", ".s"));
 	}
 
 	public static void main(String argv[]) throws IOException {

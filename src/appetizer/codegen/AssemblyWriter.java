@@ -36,4 +36,8 @@ public interface AssemblyWriter {
 	public void jump(Label label);
 
 	public void jz(Temp cond, Label label);
+
+	public void emitPrologue();
+
+	public void emitEpilogue();
 }

@@ -27,13 +27,14 @@ public class Translator {
 		if (prog.sym != symbol("main")) {
 			throw new Error("Program name must be main.");
 		}
-		// TODO prologue
+		asm.emitPrologue();
 		translate(prog.body);
 		asm.emit(exit);
-		// TODO print return value
+		asm.emitEpilogue();
 	}
 
 	private void translate(Block block) {
+		// TODO save and restore offset to use less space
 		vscope.beginScope();
 		translate(block.decls);
 		translate(block.stmts);
