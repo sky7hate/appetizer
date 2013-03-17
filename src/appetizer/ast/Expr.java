@@ -4,5 +4,5 @@ import appetizer.translate.Temp;
 
 public abstract class Expr extends Stmt {
 
-	public Temp loc;
+	public transient Temp loc;
 }
